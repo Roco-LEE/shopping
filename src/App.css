@@ -134,6 +134,41 @@
 }
 .add-product button:hover{background-color: #d81b60;}
 
+.product-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.product-buttons .btn-list {
+  padding: 10px 24px;
+  border: 2px solid #555;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #555;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.product-buttons .btn-list:hover {
+  background-color: #555;
+  color: #fff;
+}
+.product-buttons .btn-cart {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e91e63;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.product-buttons .btn-cart:hover {
+  background-color: #c2185b;
+}
+
 /* 로그인 스타일 */
 .signin{
   width: 400px;
@@ -171,3 +206,42 @@
   cursor: pointer;
 }
 .signin button:hover{background-color: rgb(0, 150, 0);}
+.signup-link{
+  margin-top: 15px;
+}
+.signup-link a{
+  color: #640aec;
+  text-decoration: none;
+}
+.signup-link a:hover{
+  text-decoration: underline;
+}
+
+.error{
+  margin-top: 15px;
+  color: rgb(218,0,0);
+}
+
+.dashboard{
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.dashboard h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+.dashboard table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.dashboard th, .dashboard td{
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+.dashboard th{
+  background-color: #f2f2f2;
+}

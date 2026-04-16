@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import users from "../data/users.json"
 
 //로그인 폼 데이터 타입 정의
@@ -9,7 +9,7 @@ interface SignInForm{
 }
 
 interface SignProps{
-    onLogin: (username: string) => void;
+    onLogin: (username: string, role: string) => void;
 }
 
 const SignIn = ({onLogin}: SignProps) => {
@@ -49,14 +49,15 @@ const SignIn = ({onLogin}: SignProps) => {
             return;
         }
         
-        onLogin(user.username) //로그인 성공시 부모 컴포넌트에 알림
+        onLogin(user.username, user.role) //로그인 성공시 부모 컴포넌트에 알림
         console.log("로그인 시도:", formData);
         
+        // 권한에 따른 페이지 이동
         if(user.role === 'admin') {
             setLoginResult('success');
-            navigate('/dashboard');
+            navigate('/dashboard', {state: {username: user.username, role: user.role}});
         } else {
-            setLoginResult('success')
+            setLoginResult('success');
             navigate('/products') //상품 목록으로 이동
         }
         
@@ -90,8 +91,12 @@ const SignIn = ({onLogin}: SignProps) => {
                 </div>
                 <button type="submit">로그인</button>
             </form>
+            <p className="signup-link">
+                아직 계정이 없으신가요? <Link to='/signup'>회원가입</Link>
+            </p>
+
             {/* 로그인 오류 메시지 표시 */}
-            {loginResult === 'fail' && <p>로그인 실패, 다시 시도하세요</p>}
+            {loginResult === 'fail' && <p className="error">로그인 실패, 다시 시도하세요</p>}
         </div>
     )
 }
