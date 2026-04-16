@@ -48,11 +48,14 @@ const SignIn = ({onLogin}: SignProps) => {
             setLoginResult('fail');
             return;
         }
-
+        
         onLogin(user.username) //로그인 성공시 부모 컴포넌트에 알림
         console.log("로그인 시도:", formData);
-
-        if(user){
+        
+        if(user.role === 'admin') {
+            setLoginResult('success');
+            navigate('/dashboard');
+        } else {
             setLoginResult('success')
             navigate('/products') //상품 목록으로 이동
         }

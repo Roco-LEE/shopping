@@ -8,6 +8,7 @@ import ProductInfo from './products/ProductInfo'
 import AddProduct from './products/AddProduct'
 import SignIn from './users/SignIn'
 import { useState } from 'react'
+import DashBoard from './users/DashBoard'
 
 function App() {
   //로그인 상태 관리
@@ -43,6 +44,7 @@ function App() {
             <Route path='/products/:id' element={<ProductInfo />} />
             <Route path='/products/add' element={<AddProduct />} />
             <Route path='/signin' element={<SignIn onLogin={handleLogin} />} />
+            <Route path='/dashboard' element={<DashBoard />} />
           </Routes>
         </BrowserRouter>
 
